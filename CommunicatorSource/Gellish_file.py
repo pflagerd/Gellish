@@ -1109,7 +1109,7 @@ if __name__ == "__main__":
     # Create a base dictionary of kinds of relations from bootstrapping
     gel_net.Create_base_reltype_objects()
 
-    path_and_name = '..\\GellishDictionary/Formal language definition base-UTF-8.csv'
+    path_and_name = '../GellishDictionary/Formal language definition base-UTF-8-subset.csv'
     current_file = Gellish_file(path_and_name, gel_net)
 
     # Read base ontology
