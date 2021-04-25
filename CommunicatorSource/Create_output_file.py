@@ -85,7 +85,6 @@ def Open_output_file(expressions, subject_name, lang_name, serialization):
 #---------------------------------------------------------
 def Save_expressions_in_file(expressions, output_file, header1, serialization):
     '''Write expressions to an output file in an CSV or RDF serialization'''
-    from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef, RDFS
 
     if serialization == 'csv':
         # Save the result_expr expressions in a CSV file, preceeded by three header lines.
@@ -108,6 +107,7 @@ def Save_expressions_in_file(expressions, output_file, header1, serialization):
             return
 
     elif serialization in ['xml', 'n3']:
+        from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef, RDFS
         g1 = Graph()
 
         uri = "http://www.formalenglish.net/dictionary" #"
