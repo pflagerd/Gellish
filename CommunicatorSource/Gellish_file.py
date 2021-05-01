@@ -121,6 +121,7 @@ class Gellish_file:
             if self.extension == 'json':
                 self.Interpret_non_gellish_JSON_file()
         else:
+            self.Interpret_the_first_header_line_as_csv()
             self.Import_expressions_from_Gellish_file(f, reader)
 
     def Interpret_non_gellish_JSON_file(self):
@@ -288,8 +289,6 @@ class Gellish_file:
         # Initialize expressions table
         self.expressions = []
         self.query_lines = []
-
-        self.Interpret_the_first_header_line()
 
         # Read 2nd line ==== with column ids and convert them to integers
         row2 = next(reader)
@@ -518,7 +517,7 @@ class Gellish_file:
             query.query_spec = self.query_lines
             query.Interpret_query_spec()
 
-    def Interpret_the_first_header_line(self):
+    def Interpret_the_first_header_line_as_csv(self):
         ''' Interpret the (first) header line of a file with Gellish expressions.
         '''
         # Determine the file type (header[5]) and verify whether base ontology is first provided
